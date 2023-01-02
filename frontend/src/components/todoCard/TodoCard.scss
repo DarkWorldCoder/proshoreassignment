@@ -1,0 +1,106 @@
+.todo_container{
+    display: flex;
+    width: 30%;
+   
+    background-color: var(--secondary-color);
+    min-height:250px;
+    margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top:20px;
+    min-width: 250px;
+   
+    @media (max-width:1150px) {
+        // min-width: 250px;
+        min-width: none;
+        max-width: none;
+        width: 45%;
+    }
+    @media (max-width:768px) {
+        width: 100%;
+        
+    }
+    
+}
+
+.todo_left{
+    background-color: transparent;
+    .custom-checkbox {
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+        
+       
+        .checkmark {
+            width: 35px;
+            height: 35px;
+            border: 2px solid rgb(155, 154, 153);
+            display: inline-block;
+            border-radius: 5px;
+            
+            background: var(--main-icon-color) url(https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/White_check.svg/1200px-White_check.svg.png) center/1250% no-repeat;
+            transition: background-size 0.2s ease;
+            opacity: .3;  
+        }
+        input:checked + .checkmark {
+            background-size: 60%;
+            opacity: 1;
+            transition: background-size 0.25s cubic-bezier(0.7, 0, 0.18, 1.24);
+          }
+          input{
+            display: none;
+          }
+        
+      }
+      
+     
+       
+      
+      
+      
+     
+}
+
+.todo_right{
+    margin-top: 10px;
+    margin-left: 10px;
+    
+    font-family: "QuickSand",sans-serif;
+    p{
+        color:rgb(204, 206, 208);
+
+        font-size: 16px;   
+    }
+    h3{
+        margin-top: 10px;
+        font-weight: 600;
+        font-size: 18px;
+        opacity: .8;
+        font-family: "QuickSand";
+        color: rgb(183, 196, 196);
+    }
+    .tag_container{
+        display:flex;
+        width: 100%;
+        margin-top: 10px;
+        flex-wrap: wrap;
+        .tag_icon{
+            display: flex;
+            width: 150px;
+            background-color: rgb(14, 12, 12);
+            padding: 10px;
+            align-items: center;
+            border-radius: 5px;
+            height: 50px;
+            font-size: 18px;
+            font-weight: 660;
+            margin-right: 10px;
+            color:rgb(145, 138, 138);
+            svg{
+                margin-right: 3px;
+            }
+        }
+    }
+    
+}

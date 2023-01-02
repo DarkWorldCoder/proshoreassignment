@@ -1,0 +1,30 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider        = "prisma-client-js"
+  binaryTargets   = ["native", "darwin", "darwin-arm64"]
+}
+
+model User {
+  id      String   @id @default(auto()) @map("_id") @db.ObjectId
+  email   String   @unique
+  image_url  String @default("https://loremflickr.com/320/240")   
+  password String  
+  todos  Todos[]
+  
+}
+
+model Todos{
+
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  postedBy   User   @relation(fields: [userId], references: [id])
+  userId String @db.ObjectId
+  description String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+  completed Boolean  @default(false)
+  label String
+}
